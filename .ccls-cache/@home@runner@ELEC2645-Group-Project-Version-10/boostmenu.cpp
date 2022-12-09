@@ -33,7 +33,7 @@ default: std::cout <<"invalid"; break;
 }
 
 void Boostmenu::boost_eq_1(){
-  std::cout << "Equation 1 boost" << std::endl;
+  std::cout << "Equation 1 boost thjglf" << std::endl;
 }
 
 void Boostmenu::boost_eq_2(){
