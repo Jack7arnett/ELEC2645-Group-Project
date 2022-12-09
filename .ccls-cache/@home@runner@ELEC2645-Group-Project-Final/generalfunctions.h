@@ -11,7 +11,8 @@ class Func {
 public:
   void select_menu_item(int input);
   bool is_integer(std::string num);
-  int waituntilvalidnum(int menu_items);
+  int checkmenuinput(int menu_items);
+  int checkvalinput();
   void clear();
   void go_back_to_main();
 

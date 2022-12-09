@@ -7,7 +7,7 @@
 void Mainmenu::main_menu() {
   print_main_menu();
   Func check;
-  int input = check.waituntilvalidnum(4);
+  int input = check.checkmenuinput(4);
   select_menu_item(input);
 }
 
@@ -46,7 +46,7 @@ void Mainmenu::menu_item_1() {
   clr.clear();
   print_con_menu();
   Func check;
-  int yourchoice = check.waituntilvalidnum(2);
+  int yourchoice = check.checkmenuinput(2);
 switch (yourchoice)
 { Buckmenu startbuck;
   Boostmenu startboost;

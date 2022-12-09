@@ -6,7 +6,7 @@ void Buckmenu::buck_converter() {
   clr.clear();
   print_buck_menu();
   Func check;
-  int yourchoice = check.waituntilvalidnum(9);
+  int yourchoice = check.checkmenuinput(9);
 switch (yourchoice)
 { 
 case 1: buck_eq_1(); break;
@@ -42,61 +42,58 @@ void Buckmenu::print_buck_menu() {
 
 void Buckmenu::buck_eq_1(){
   Func clr;
+  Func valcheck;
   clr.clear();
   std::cout << "\nSwitching frequency (Fs) selected:\n" << std::endl;
   std::cout << "Fs = 1/Ts\n" << std::endl;
   std::cout << "Please enter a value for the time period (Ts).\n" << std::endl;
   float Fs;
-  float Ts;
-  std::cin >> Ts;
+  float Ts = valcheck.checkvalinput();
   Fs = 1/Ts;
   std::cout << "\nSwitching frequency = " << Fs << " s.\n";
 }
 
 void Buckmenu::buck_eq_2(){
   Func clr;
+  Func valcheck;
   clr.clear();
   std::cout << "\nTime period (Ts) selected:\n" << std::endl;
   std::cout << "Ts = t(on) + t(off)\n" << std::endl;
   std::cout << "Please enter a value for t(on).\n" << std::endl;
   float Ts;
-  float ton;
-  std::cin >> ton;
+  float ton = valcheck.checkvalinput();
   std::cout << "\nPlease enter a value for t(off).\n" << std::endl;
-  float toff;
-  std::cin >> toff;
+  float toff = valcheck.checkvalinput();
   Ts = ton + toff;
   std::cout << "\nTime period = " << Ts << " s.\n";
 }
 
 void Buckmenu::buck_eq_3(){
   Func clr;
+  Func valcheck;
   clr.clear();
   std::cout << "\nPower in (Pin) selected:\n" << std::endl;
   std::cout << "Pin = Vi + Ii\n" << std::endl;
   std::cout << "Please enter a value for voltage in (Vi).\n" << std::endl;
   float Pin;
-  float Vi;
-  std::cin >> Vi;
+  float Vi = valcheck.checkvalinput();
   std::cout << "\nPlease enter a value for current in (Ii).\n" << std::endl;
-  float Ii;
-  std::cin >> Ii;
+  float Ii = valcheck.checkvalinput();
   Pin = Vi + Ii;
   std::cout << "\nPower in = " << Pin << " W.\n";
 }
 
 void Buckmenu::buck_eq_4(){
   Func clr;
+  Func valcheck;
   clr.clear();
   std::cout << "\nPower out (Pout) selected:\n" << std::endl;
   std::cout << "Pout = Vo + Io\n" << std::endl;
   std::cout << "Please enter a value for voltage out (Vo).\n" << std::endl;
   float Pout;
-  float Vo;
-  std::cin >> Vo;
+  float Vo = valcheck.checkvalinput();
   std::cout << "\nPlease enter a value for current out (Io).\n" << std::endl;
-  float Io;
-  std::cin >> Io;
+  float Io = valcheck.checkvalinput();
   Pout = Vo + Io;
   std::cout << "\nPower in = " << Pout << " W.\n";
 }
@@ -106,7 +103,7 @@ void Buckmenu::buck_eq_5(){
   clr.clear();
   print_duty_menu();
   Func check;
-  int yourchoice = check.waituntilvalidnum(4);
+  int yourchoice = check.checkmenuinput(4);
 switch (yourchoice)
 { 
 case 1: duty_eq_1(); break;
@@ -119,70 +116,60 @@ default: std::cout <<"invalid"; break;
 
 void Buckmenu::buck_eq_6(){
   Func clr;
+  Func valcheck;
   clr.clear();
   std::cout << "\nInductor (L) selected:\n" << std::endl;
   std::cout << "L = (1-K)Vo/(Fs x Δi)\n" << std::endl;
   std::cout << "Please enter a value for duty ratio (K).\n" << std::endl;
   float L;
-  float K;
-  std::cin >> K;
+  float K = valcheck.checkvalinput();
   std::cout << "\nPlease enter a value for voltage out (Vo).\n" << std::endl;
-  float Vo;
-  std::cin >> Vo;
+  float Vo = valcheck.checkvalinput();
   std::cout << "\nPlease enter a value for switching frequency (Fs).\n" << std::endl;
-  float Fs;
-  std::cin >> Fs;
+  float Fs = valcheck.checkvalinput();
   std::cout << "\nPlease enter a value for current ripple magnitude (Δi).\n" << std::endl;
-  float i;
-  std::cin >> i;
+  float i = valcheck.checkvalinput();
   L = ((1-K)*Vo)/(Fs*i);
   std::cout << "\nInductor value = " << L << " SI.\n";
 }
 
 void Buckmenu::buck_eq_7(){
   Func clr;
+  Func valcheck;
   clr.clear();
   std::cout << "\nCurrent ripple magnitude (Δi) selected:\n" << std::endl;
   std::cout << "Δi = ((1-K)Ts x Vo)/L\n" << std::endl;
   std::cout << "Please enter a value for duty ratio (K).\n" << std::endl;
   float i;
-  float K;
-  std::cin >> K;
+  float K = valcheck.checkvalinput();
   std::cout << "\nPlease enter a value for time period (Ts).\n" << std::endl;
-  float Ts;
-  std::cin >> Ts;
+  float Ts = valcheck.checkvalinput();
   std::cout << "\nPlease enter a value for voltage out (Vo).\n" << std::endl;
-  float Vo;
-  std::cin >> Vo;
+  float Vo = valcheck.checkvalinput();
   std::cout << "\nPlease enter a value for the inductor (L).\n" << std::endl;
-  float L;
-  std::cin >> L;
+  float L = valcheck.checkvalinput();
   i = ((1-K)*Ts*Vo)/L;
   std::cout << "\nCurrent ripple magnitude = " << i << " A.\n";
 }
 
 void Buckmenu::buck_eq_8(){
   Func clr;
+  Func valcheck;
   clr.clear();
   std::cout << "\nCapacitor (Co) selected:\n" << std::endl;
   std::cout << "Co = (1-K)Vo/(8 x (Fs)^2 x Δvo x L)\n" << std::endl;
   std::cout << "Please enter a value for duty ratio (K).\n" << std::endl;
   float Co;
   float Q;
-  float K;
-  std::cin >> K;
+  float K = valcheck.checkvalinput();
   std::cout << "\nPlease enter a value for voltage out (Vo).\n" << std::endl;
-  float Vo;
-  std::cin >> Vo;
+  float Vo = valcheck.checkvalinput();
   std::cout << "\nPlease enter a value for switching frequency (Fs).\n" << std::endl;
-  float Fs;
-  std::cin >> Fs;
+  float Fs = valcheck.checkvalinput();
   std::cout << "\nPlease enter a value for current ripple magnitude (Δvo).\n" << std::endl;
-  float vo;
-  std::cin >> vo;
+  float vo = valcheck.checkvalinput();
   std::cout << "\nPlease enter a value for the inductor (L).\n" << std::endl;
-  float L;
-  std::cin >> L;
+  float L = valcheck.checkvalinput();
   capacitor_calc(K, Vo, Fs, vo, L, Co, Q);
   std::cout << "\nCapacitor = " << Co << " F.\n";
   std::cout << "\nCharge of Capacitor = " << Q << " C.\n";
@@ -198,7 +185,7 @@ void Buckmenu::buck_eq_9(){
   clr.clear();
   print_volt_menu();
   Func check;
-  int yourchoice = check.waituntilvalidnum(2);
+  int yourchoice = check.checkmenuinput(2);
 switch (yourchoice)
 { 
 case 1: voltrip_eq_1(); break;
@@ -222,64 +209,60 @@ void Buckmenu::print_duty_menu(){
 
 void Buckmenu::duty_eq_1(){
   Func clr;
+  Func valcheck;
   clr.clear();
   std::cout << "\nDuty ratio equation 1 selected:\n" << std::endl;
   std::cout << "K = t(on)/Ts\n" << std::endl;
   std::cout << "Please enter a value for t(on).\n" << std::endl;
   float K;
-  float ton;
-  std::cin >> ton;
+  float ton = valcheck.checkvalinput();
   std::cout << "\nPlease enter a value for Ts.\n" << std::endl;
-  float Ts;
-  std::cin >> Ts;
+  float Ts = valcheck.checkvalinput();
   K = ton/Ts;
   std::cout << "\nDuty ratio = " << K << "\n";
 }
 
 void Buckmenu::duty_eq_2(){
   Func clr;
+  Func valcheck;
   clr.clear();
   std::cout << "\nDuty ratio equation 2 selected:\n" << std::endl;
   std::cout << "K = 1-(t(off)/Ts)\n" << std::endl;
   std::cout << "Please enter a value for t(off).\n" << std::endl;
   float K;
-  float toff;
-  std::cin >> toff;
+  float toff = valcheck.checkvalinput();
   std::cout << "\nPlease enter a value for Ts.\n" << std::endl;
-  float Ts;
-  std::cin >> Ts;
+  float Ts = valcheck.checkvalinput();
   K = 1-(toff/Ts);
   std::cout << "\nDuty ratio = " << K << "\n";
 }
 
 void Buckmenu::duty_eq_3(){
   Func clr;
+  Func valcheck;
   clr.clear();
   std::cout << "\nDuty ratio equation 3 selected:\n" << std::endl;
   std::cout << "K = Vo/Vi\n" << std::endl;
   std::cout << "Please enter a value for Vo.\n" << std::endl;
   float K;
-  float Vo;
-  std::cin >> Vo;
+  float Vo = valcheck.checkvalinput();
   std::cout << "\nPlease enter a value for Vi.\n" << std::endl;
-  float Vi;
-  std::cin >> Vi;
+  float Vi = valcheck.checkvalinput();
   K = Vo/Vi;
   std::cout << "\nDuty ratio = " << K << "\n";
 }
 
 void Buckmenu::duty_eq_4(){
   Func clr;
+  Func valcheck;
   clr.clear();
   std::cout << "\nDuty ratio equation 4 selected:\n" << std::endl;
   std::cout << "K = Ii/Io\n" << std::endl;
   std::cout << "Please enter a value for Ii.\n" << std::endl;
   float K;
-  float Ii;
-  std::cin >> Ii;
+  float Ii = valcheck.checkvalinput();
   std::cout << "\nPlease enter a value for Io.\n" << std::endl;
-  float Io;
-  std::cin >> Io;
+  float Io = valcheck.checkvalinput();
   K = Ii/Io;
   std::cout << "\nDuty ratio = " << K << "\n";
 }
@@ -297,38 +280,34 @@ void Buckmenu::print_volt_menu(){
 
 void Buckmenu::voltrip_eq_1(){
   Func clr;
+  Func valcheck;
   clr.clear();
   std::cout << "\nVoltage ripple magnitude equation 1 selected:\n" << std::endl;
   std::cout << "Δvo = (% x Vo)/100\n" << std::endl;
   std::cout << "Please enter a value for the voltage ripple magnitude percentage.\n" << std::endl;
   float vo;
-  float perc;
-  std::cin >> perc;
+  float perc = valcheck.checkvalinput();
   std::cout << "\nPlease enter a value for Vo.\n" << std::endl;
-  float Vo;
-  std::cin >> Vo;
+  float Vo = valcheck.checkvalinput();
   vo = (perc*Vo)/100;
   std::cout << "\nVoltage ripple magnitude = " << vo << "\n";
 }
 
 void Buckmenu::voltrip_eq_2(){
   Func clr;
+  Func valcheck;
   clr.clear();
   std::cout << "\nVoltage ripple magnitude equation 2 selected:\n" << std::endl;
   std::cout << "Δvo = (K x Ts)/(R x Co)\n" << std::endl;
   std::cout << "Please enter a value for the duty ratio.\n" << std::endl;
   float vo;
-  float K;
-  std::cin >> K;
+  float K = valcheck.checkvalinput();
   std::cout << "\nPlease enter a value for Ts.\n" << std::endl;
-  float Ts;
-  std::cin >> Ts;
+  float Ts = valcheck.checkvalinput();
   std::cout << "Please enter a value for the resistor.\n" << std::endl;
-  float R;
-  std::cin >> R;
+  float R = valcheck.checkvalinput();
   std::cout << "\nPlease enter a value for the capacitor.\n" << std::endl;
-  float Co;
-  std::cin >> Co;
+  float Co = valcheck.checkvalinput();
   vo = (K*Ts)/(R*Co);
   std::cout << "\nVoltage ripple magnitude = " << vo << "\n";
 }
