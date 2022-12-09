@@ -1,5 +1,7 @@
-#include <iostream>
+#include "mainmenu.h"
 
-int main() {
-  std::cout << "Hello World!\n";
+int main(int argc, char const *argv[]) {
+  Mainmenu start;
+  start.main_menu();
+  return 0;
 }
