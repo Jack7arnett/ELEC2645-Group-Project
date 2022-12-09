@@ -99,7 +99,7 @@ void Buckmenu::buck_eq_4(){
   std::cout << "\nPlease enter a value for current out (Io).\n" << std::endl;
   float Io = valcheck.checkvalinput();
   Pout = Vo + Io;
-  std::cout << "\nPower in = " << Pout << " W.\n";
+  std::cout << "\nPower out = " << Pout << " W.\n";
 }
 
 void Buckmenu::buck_eq_5(){

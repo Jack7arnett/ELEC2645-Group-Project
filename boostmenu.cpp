@@ -39,22 +39,65 @@ void Boostmenu::select_boost_item(int input){
   case 8: boost_eq_8();break;
   case 9: boost_eq_9();break;
   default: std::cout <<"invalid"; break;
+  }
 }
 
 void Boostmenu::boost_eq_1(){
-  std::cout << "Equation 1 boost thjglf" << std::endl;
+  Func clr;
+  Func valcheck;
+  clr.clear();
+  std::cout << "\nSwitching frequency (Fs) selected:\n" << std::endl;
+  std::cout << "Fs = 1/Ts\n" << std::endl;
+  std::cout << "Please enter a value for the time period (Ts).\n" << std::endl;
+  float Fs;
+  float Ts = valcheck.checkvalinput();
+  Fs = 1/Ts;
+  std::cout << "\nSwitching frequency = " << Fs << " s.\n";
 }
 
 void Boostmenu::boost_eq_2(){
-  std::cout << "Equation 2" << std::endl;
+  Func clr;
+  Func valcheck;
+  clr.clear();
+  std::cout << "\nTime period (Ts) selected:\n" << std::endl;
+  std::cout << "Ts = t(on) + t(off)\n" << std::endl;
+  std::cout << "Please enter a value for t(on).\n" << std::endl;
+  float Ts;
+  float ton = valcheck.checkvalinput();
+  std::cout << "\nPlease enter a value for t(off).\n" << std::endl;
+  float toff = valcheck.checkvalinput();
+  Ts = ton + toff;
+  std::cout << "\nTime period = " << Ts << " s.\n";
 }
 
 void Boostmenu::boost_eq_3(){
-  std::cout << "Equation 3" << std::endl;
+  Func clr;
+  Func valcheck;
+  clr.clear();
+  std::cout << "\nPower in (Pin) selected:\n" << std::endl;
+  std::cout << "Pin = Vi + Ii\n" << std::endl;
+  std::cout << "Please enter a value for voltage in (Vi).\n" << std::endl;
+  float Pin;
+  float Vi = valcheck.checkvalinput();
+  std::cout << "\nPlease enter a value for current in (Ii).\n" << std::endl;
+  float Ii = valcheck.checkvalinput();
+  Pin = Vi + Ii;
+  std::cout << "\nPower in = " << Pin << " W.\n";
 }
 
 void Boostmenu::boost_eq_4(){
-  std::cout << "Equation 4" << std::endl;
+  Func clr;
+  Func valcheck;
+  clr.clear();
+  std::cout << "\nPower out (Pout) selected:\n" << std::endl;
+  std::cout << "Pout = Vo + Io\n" << std::endl;
+  std::cout << "Please enter a value for voltage out (Vo).\n" << std::endl;
+  float Pout;
+  float Vo = valcheck.checkvalinput();
+  std::cout << "\nPlease enter a value for current out (Io).\n" << std::endl;
+  float Io = valcheck.checkvalinput();
+  Pout = Vo + Io;
+  std::cout << "\nPower out = " << Pout << " W.\n";
 }
 
 void Boostmenu::boost_eq_5(){
@@ -62,11 +105,41 @@ void Boostmenu::boost_eq_5(){
 }
 
 void Boostmenu::boost_eq_6(){
-  std::cout << "Equation 6" << std::endl;
+  Func clr;
+  Func valcheck;
+  clr.clear();
+  std::cout << "\nInductor (L) selected:\n" << std::endl;
+  std::cout << "L = (Vi x K)/(Fs x Δi)\n" << std::endl;
+  std::cout << "Please enter a value for duty ratio (K).\n" << std::endl;
+  float L;
+  float K = valcheck.checkvalinput();
+  std::cout << "\nPlease enter a value for voltage in (Vi).\n" << std::endl;
+  float Vi = valcheck.checkvalinput();
+  std::cout << "\nPlease enter a value for switching frequency (Fs).\n" << std::endl;
+  float Fs = valcheck.checkvalinput();
+  std::cout << "\nPlease enter a value for current ripple magnitude (Δi).\n" << std::endl;
+  float i = valcheck.checkvalinput();
+  L = (K*Vi)/(Fs*i);
+  std::cout << "\nInductor value = " << L << " SI.\n";
 }
 
 void Boostmenu::boost_eq_7(){
-  std::cout << "Equation 7" << std::endl;
+  Func clr;
+  Func valcheck;
+  clr.clear();
+  std::cout << "\nCurrent ripple magnitude (Δi) selected:\n" << std::endl;
+  std::cout << "Δi = (K x Ts x Vi)/L\n" << std::endl;
+  std::cout << "Please enter a value for duty ratio (K).\n" << std::endl;
+  float i;
+  float K = valcheck.checkvalinput();
+  std::cout << "\nPlease enter a value for time period (Ts).\n" << std::endl;
+  float Ts = valcheck.checkvalinput();
+  std::cout << "\nPlease enter a value for voltage in (Vi).\n" << std::endl;
+  float Vi = valcheck.checkvalinput();
+  std::cout << "\nPlease enter a value for the inductor (L).\n" << std::endl;
+  float L = valcheck.checkvalinput();
+  i = (K*Ts*Vi)/L;
+  std::cout << "\nCurrent ripple magnitude = " << i << " A.\n";
 }
 
 void Boostmenu::boost_eq_8(){
