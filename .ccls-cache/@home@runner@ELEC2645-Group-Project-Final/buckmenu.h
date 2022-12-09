@@ -31,6 +31,9 @@ public:
   void voltrip_eq_2();
 
 private:
+  void select_buck_item(int input);
+  void select_duty_item(int input);
+  void select_volt_item(int input);
   bool is_integer(std::string num);
   void capacitor_calc(float K, float Vo, float Fs, float vo, float L, float &Co, float&Q);
 };

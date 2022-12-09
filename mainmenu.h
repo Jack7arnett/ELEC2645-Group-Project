@@ -21,6 +21,7 @@ public:
 
 private:
   void select_menu_item(int input);
+  void select_dc_item(int input);
   bool is_integer(std::string num);
 };
 

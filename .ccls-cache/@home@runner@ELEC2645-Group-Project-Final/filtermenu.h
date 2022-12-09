@@ -3,7 +3,7 @@
 #include <math.h>
 #include <iostream>
 #include <regex>
-#include 
+#include "generalfunctions.h"
 #define pi 3.14159265
 class filtermenu { 
 public : 

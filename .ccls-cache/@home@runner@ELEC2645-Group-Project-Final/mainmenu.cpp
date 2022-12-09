@@ -47,13 +47,7 @@ void Mainmenu::menu_item_1() {
   print_con_menu();
   Func check;
   int yourchoice = check.checkmenuinput(2);
-switch (yourchoice)
-{ Buckmenu startbuck;
-  Boostmenu startboost;
-case 1: startbuck.buck_converter();break;
-case 2: startboost.boost_converter();break;
-default: std::cout << "Invalid";break;
-  }
+  select_dc_item(yourchoice);
   Func menu;
   menu.go_back_to_main();
 }
@@ -67,6 +61,16 @@ void Mainmenu::print_con_menu(){
   std::cout << "---------------------------------\n";
   std::cout << "\nPlease enter the corresponding number to choose a desired DC-DC converter.\n";
   std::cout << "\nSelect item: ";
+}
+
+void Mainmenu::select_dc_item(int input) {
+  switch (input)
+{ Buckmenu startbuck;
+  Boostmenu startboost;
+  case 1: startbuck.buck_converter();break;
+  case 2: startboost.boost_converter();break;
+  default: std::cout << "Invalid";break;
+  }
 }
 
 void Mainmenu::menu_item_2() {
