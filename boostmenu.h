@@ -9,6 +9,7 @@
 class Boostmenu {
 public:
   void boost_converter();
+  void print_boost_menu();
   void boost_eq_1();
   void boost_eq_2();
   void boost_eq_3();
@@ -20,6 +21,7 @@ public:
   void boost_eq_9();
 
 private:
+  void select_boost_item(int input);
 
 };
 

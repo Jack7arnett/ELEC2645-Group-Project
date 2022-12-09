@@ -1,6 +1,16 @@
 #include "boostmenu.h"
+#include "generalfunctions.h"
 
 void Boostmenu::boost_converter() {
+  Func clr;
+  clr.clear();
+  print_boost_menu();
+  Func check;
+  int yourchoice = check.checkmenuinput(9);
+  select_boost_item(yourchoice);
+}
+
+void Boostmenu::print_boost_menu(){
   std::cout << "\n------------- Boost Converter Menu --------------\n";
   std::cout << "|\t\t\t\t\t\t\t\t\t\t\t\t|\n";
   std::cout << "|\t1. Switching Frequency\t\t\t\t\t\t|\n";
@@ -15,21 +25,20 @@ void Boostmenu::boost_converter() {
   std::cout << "|\t\t\t\t\t\t\t\t\t\t\t\t|\n";
   std::cout << "-------------------------------------------------\n";
   std::cout << "\nPlease choose a desired calculation.\n";
-  int yourchoice;
-  std::cin >> yourchoice;
-switch (yourchoice)
-{ 
-case 1: boost_eq_1(); break;
-case 2: boost_eq_2();break;
-case 3: boost_eq_3(); break;
-case 4: boost_eq_4();break;
-case 5: boost_eq_5(); break;
-case 6: boost_eq_6();break;
-case 7: boost_eq_7(); break;
-case 8: boost_eq_8();break;
-case 9: boost_eq_9();break;
-default: std::cout <<"invalid"; break;
-  }
+}
+
+void Boostmenu::select_boost_item(int input){
+  switch (input)
+{ case 1: boost_eq_1();break;
+  case 2: boost_eq_2();break;
+  case 3: boost_eq_3();break;
+  case 4: boost_eq_4();break;
+  case 5: boost_eq_5();break;
+  case 6: boost_eq_6();break;
+  case 7: boost_eq_7();break;
+  case 8: boost_eq_8();break;
+  case 9: boost_eq_9();break;
+  default: std::cout <<"invalid"; break;
 }
 
 void Boostmenu::boost_eq_1(){
