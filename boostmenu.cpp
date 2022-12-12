@@ -162,7 +162,7 @@ void Boostmenu::duty_eq_1(){
   std::cout << "\nPlease enter a value for the time period (Ts).\n" << std::endl;
   float Ts = valcheck.checkvalinput();
   K = ton/Ts;
-  std::cout << "\nDuty ratio = " << K << "\n";
+  std::cout << "\nDuty ratio = " << K << ".\n";
 }
 
 void Boostmenu::duty_eq_2(){
@@ -177,7 +177,7 @@ void Boostmenu::duty_eq_2(){
   std::cout << "\nPlease enter a value for the time period (Ts).\n" << std::endl;
   float Ts = valcheck.checkvalinput();
   K = 1-(toff/Ts);
-  std::cout << "\nDuty ratio = " << K << "\n";
+  std::cout << "\nDuty ratio = " << K << ".\n";
 }
 
 void Boostmenu::duty_eq_3(){
@@ -192,7 +192,7 @@ void Boostmenu::duty_eq_3(){
   std::cout << "\nPlease enter a value for voltage in (Vi).\n" << std::endl;
   float Vi = valcheck.checkvalinput();
   K = 1-(Vi/Vo);
-  std::cout << "\nDuty ratio = " << K << "\n";
+  std::cout << "\nDuty ratio = " << K << ".\n";
 }
 
 void Boostmenu::duty_eq_4(){
@@ -207,7 +207,7 @@ void Boostmenu::duty_eq_4(){
   std::cout << "\nPlease enter a value for current out (Io).\n" << std::endl;
   float Io = valcheck.checkvalinput();
   K = 1-(Io/Ii);
-  std::cout << "\nDuty ratio = " << K << "\n";
+  std::cout << "\nDuty ratio = " << K << ".\n";
 }
 
 //code relating to duty ratio menu ends here
@@ -296,7 +296,7 @@ void Boostmenu::cap_eq_1(){
   std::cout << "\nPlease enter a value for current ripple magnitude (Δvo).\n" << std::endl;
   float vo = valcheck.checkvalinput();
   Co = (Q/vo);
-  std::cout << "\nCapacitor = " << Co << "\n";
+  std::cout << "\nCapacitor = " << Co << " F.\n";
 }
 
 void Boostmenu::cap_eq_2(){
@@ -306,7 +306,8 @@ void Boostmenu::cap_eq_2(){
   std::cout << "\nCapacitor equation 2 selected:\n" << std::endl;
   std::cout << "Co = (Io x K)/(Δvo x Fs)\n" << std::endl;
   std::cout << "Please enter a value for current out (Io).\n" << std::endl;
-  float Co;
+  float Co1;
+  float Q1;
   float Io = valcheck.checkvalinput();
   std::cout << "\nPlease enter a value for the duty ratio (K).\n" << std::endl;
   float K = valcheck.checkvalinput();
@@ -314,8 +315,14 @@ void Boostmenu::cap_eq_2(){
   float vo = valcheck.checkvalinput();
   std::cout << "\nPlease enter a value for switching frequency (Fs).\n" << std::endl;
   float Fs = valcheck.checkvalinput();
-  Co = (Io*K)/(vo*Fs);
-  std::cout << "\nCapacitor = " << Co << "\n";
+  capacitor_calc1(K, Io, Fs, vo, Co1, Q1);
+  std::cout << "\nCapacitor = " << Co1 << " F.\n";
+  std::cout << "\nCharge = " << Q1 << " C.\n";
+}
+
+void Boostmenu::capacitor_calc1(float K, float Io, float Fs, float vo, float &Co1, float &Q1){
+  Co1 = (Io*K)/(vo*Fs);
+  Q1 = Co1*vo;
 }
 
 void Boostmenu::cap_eq_3(){
@@ -324,9 +331,10 @@ void Boostmenu::cap_eq_3(){
   clr.clear();
   std::cout << "\nCapacitor equation 3 selected:\n" << std::endl;
   std::cout << "Co = (Vo x K)/(Δvo x R x Fs)\n" << std::endl;
-  std::cout << "Please enter a value for current out (Io).\n" << std::endl;
-  float Co;
-  float Io = valcheck.checkvalinput();
+  std::cout << "Please enter a value for current out (Vo).\n" << std::endl;
+  float Co2;
+  float Q2;
+  float Vo = valcheck.checkvalinput();
   std::cout << "\nPlease enter a value for the duty ratio (K).\n" << std::endl;
   float K = valcheck.checkvalinput();
   std::cout << "\nPlease enter a value for current ripple magnitude (Δvo).\n" << std::endl;
@@ -335,8 +343,14 @@ void Boostmenu::cap_eq_3(){
   float R = valcheck.checkvalinput();
   std::cout << "\nPlease enter a value for switching frequency (Fs).\n" << std::endl;
   float Fs = valcheck.checkvalinput();
-  Co = (Io*K)/(vo*R*Fs);
-  std::cout << "\nCapacitor = " << Co << "\n";
+  capacitor_calc2(K, Vo, Fs, vo, R, Co2, Q2);
+  std::cout << "\nCapacitor = " << Co2 << " F.\n";
+  std::cout << "\nCharge = " << Q2 << " C.\n";
+}
+
+void Boostmenu::capacitor_calc2(float Vo, float K, float vo, float R, float Fs, float &Co2, float &Q2){
+  Co2 = (Vo*K)/(vo*R*Fs);
+  Q2 = Co2*vo;
 }
 
 //code relating to cap menu ends here
@@ -379,13 +393,13 @@ void Boostmenu::voltrip_eq_1(){
   clr.clear();
   std::cout << "\nVoltage ripple magnitude equation 1 selected:\n" << std::endl;
   std::cout << "Δvo = (% x Vo)/100\n" << std::endl;
-  std::cout << "Please enter a value for the voltage ripple magnitude percentage (%).\n" << std::endl;
+  std::cout << "\nPlease enter a value for the voltage ripple magnitude percentage (%).\n" << std::endl;
   float vo;
   float perc = valcheck.checkvalinput();
   std::cout << "\nPlease enter a value for voltage out (Vo).\n" << std::endl;
   float Vo = valcheck.checkvalinput();
   vo = (perc*Vo)/100;
-  std::cout << "\nVoltage ripple magnitude = " << vo << "\n";
+  std::cout << "\nVoltage ripple magnitude = " << vo << " V.\n";
 }
 
 void Boostmenu::voltrip_eq_2(){
@@ -399,12 +413,12 @@ void Boostmenu::voltrip_eq_2(){
   float K = valcheck.checkvalinput();
   std::cout << "\nPlease enter a value for the time period (Ts).\n" << std::endl;
   float Ts = valcheck.checkvalinput();
-  std::cout << "Please enter a value for the resistor (R).\n" << std::endl;
+  std::cout << "\nPlease enter a value for the resistor (R).\n" << std::endl;
   float R = valcheck.checkvalinput();
   std::cout << "\nPlease enter a value for the capacitor (Co).\n" << std::endl;
   float Co = valcheck.checkvalinput();
   vo = (K*Ts)/(R*Co);
-  std::cout << "\nVoltage ripple magnitude = " << vo << "\n";
+  std::cout << "\nVoltage ripple magnitude = " << vo << " V.\n";
 }
 
 //code relating to volt menu ends here

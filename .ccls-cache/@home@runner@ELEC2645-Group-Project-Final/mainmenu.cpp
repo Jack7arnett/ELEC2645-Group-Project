@@ -80,8 +80,6 @@ void Mainmenu::select_dc_item(int input) {
 void Mainmenu::menu_item_2() {
   filtermenu filtermenu;
   filtermenu.filter_menu();
-  Func menu;
-  menu.go_back_to_main();
 }
 
 void Mainmenu::menu_item_3() {

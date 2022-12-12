@@ -161,10 +161,10 @@ void Buckmenu::duty_eq_1(){
   std::cout << "Please enter a value for t(on).\n" << std::endl;
   float K;
   float ton = valcheck.checkvalinput();
-  std::cout << "\nPlease enter a value for Ts.\n" << std::endl;
+  std::cout << "\nPlease enter a value for the time period (Ts).\n" << std::endl;
   float Ts = valcheck.checkvalinput();
   K = ton/Ts;
-  std::cout << "\nDuty ratio = " << K << "\n";
+  std::cout << "\nDuty ratio = " << K << ".\n";
 }
 
 void Buckmenu::duty_eq_2(){
@@ -176,10 +176,10 @@ void Buckmenu::duty_eq_2(){
   std::cout << "Please enter a value for t(off).\n" << std::endl;
   float K;
   float toff = valcheck.checkvalinput();
-  std::cout << "\nPlease enter a value for Ts.\n" << std::endl;
+  std::cout << "\nPlease enter a value for the time period (Ts).\n" << std::endl;
   float Ts = valcheck.checkvalinput();
   K = 1-(toff/Ts);
-  std::cout << "\nDuty ratio = " << K << "\n";
+  std::cout << "\nDuty ratio = " << K << ".\n";
 }
 
 void Buckmenu::duty_eq_3(){
@@ -188,13 +188,13 @@ void Buckmenu::duty_eq_3(){
   clr.clear();
   std::cout << "\nDuty ratio equation 3 selected:\n" << std::endl;
   std::cout << "K = Vo/Vi\n" << std::endl;
-  std::cout << "Please enter a value for Vo.\n" << std::endl;
+  std::cout << "Please enter a value for voltage out (Vo).\n" << std::endl;
   float K;
   float Vo = valcheck.checkvalinput();
-  std::cout << "\nPlease enter a value for Vi.\n" << std::endl;
+  std::cout << "\nPlease enter a value for voltage in (Vi).\n" << std::endl;
   float Vi = valcheck.checkvalinput();
   K = Vo/Vi;
-  std::cout << "\nDuty ratio = " << K << "\n";
+  std::cout << "\nDuty ratio = " << K << ".\n";
 }
 
 void Buckmenu::duty_eq_4(){
@@ -203,13 +203,13 @@ void Buckmenu::duty_eq_4(){
   clr.clear();
   std::cout << "\nDuty ratio equation 4 selected:\n" << std::endl;
   std::cout << "K = Ii/Io\n" << std::endl;
-  std::cout << "Please enter a value for Ii.\n" << std::endl;
+  std::cout << "Please enter a value for current in (Ii).\n" << std::endl;
   float K;
   float Ii = valcheck.checkvalinput();
-  std::cout << "\nPlease enter a value for Io.\n" << std::endl;
+  std::cout << "\nPlease enter a value for current out (Io).\n" << std::endl;
   float Io = valcheck.checkvalinput();
   K = Ii/Io;
-  std::cout << "\nDuty ratio = " << K << "\n";
+  std::cout << "\nDuty ratio = " << K << ".\n";
 }
 
 //code relating to duty ratio menu ends here
@@ -258,7 +258,7 @@ void Buckmenu::buck_eq_8(){
   clr.clear();
   std::cout << "\nCapacitor (Co) selected:\n" << std::endl;
   std::cout << "Co = (1-K)Vo/(8 x (Fs)^2 x Δvo x L)\n" << std::endl;
-  std::cout << "Please enter a value for duty ratio (K).\n" << std::endl;
+  std::cout << "\nPlease enter a value for duty ratio (K).\n" << std::endl;
   float Co;
   float Q;
   float K = valcheck.checkvalinput();
@@ -304,7 +304,7 @@ void Buckmenu::print_volt_menu(){
   std::cout << "\n- Voltage Ripple Magnitude (Δvo) Equation Menu -\n";
   std::cout << "|\t\t\t\t\t\t\t\t\t\t\t   |\n";
   std::cout << "|\t1. Δvo = (1-K)Vo/(8 x Co x L x (Fs)^2)\t   |\n";
-  std::cout << "|\t2. Δvo = π(1-K)(Fc)^2/(2 x (Fs)^2)\t\t   |\n";
+  std::cout << "|\t2. Δvo = (π)^2(1-K)(Fc)^2/(2 x (Fs)^2)\t   |\n";
   std::cout << "|\t3. Return\t\t\t\t\t\t\t\t   |\n";
   std::cout << "|\t\t\t\t\t\t\t\t\t\t\t   |\n";
   std::cout << "------------------------------------------------\n";
@@ -318,10 +318,10 @@ void Buckmenu::voltrip_eq_1(){
   clr.clear();
   std::cout << "\nVoltage ripple magnitude equation 1 selected:\n" << std::endl;
   std::cout << "Δvo = (1-K)Vo/(8 x Co x L x (Fs)^2)\n" << std::endl;
-  std::cout << "Please enter a value for the duty ratio (K).\n" << std::endl;
+  std::cout << "\nPlease enter a value for the duty ratio (K).\n" << std::endl;
   float vo;
   float K = valcheck.checkvalinput();
-  std::cout << "Please enter a value for voltage out (Vo).\n" << std::endl;
+  std::cout << "\nPlease enter a value for voltage out (Vo).\n" << std::endl;
   float Vo = valcheck.checkvalinput();
   std::cout << "\nPlease enter a value for the capacitor (Co).\n" << std::endl;
   float Co = valcheck.checkvalinput();
@@ -330,7 +330,7 @@ void Buckmenu::voltrip_eq_1(){
   std::cout << "\nPlease enter a value for the switching frequency (Fs).\n" << std::endl;
   float Fs = valcheck.checkvalinput();
   vo = ((1-K)*Vo)/(8*Co*L*pow(Fs,2));
-  std::cout << "\nVoltage ripple magnitude = " << vo << "\n";
+  std::cout << "\nVoltage ripple magnitude = " << vo << " V.\n";
 }
 
 void Buckmenu::voltrip_eq_2(){
@@ -338,16 +338,16 @@ void Buckmenu::voltrip_eq_2(){
   Func valcheck;
   clr.clear();
   std::cout << "\nVoltage ripple magnitude equation 2 selected:\n" << std::endl;
-  std::cout << "Δvo = π(1-K)(Fc)^2/(2 x (Fs)^2)\n" << std::endl;
+  std::cout << "Δvo = (π)^2(1-K)(Fc)^2/(2 x (Fs)^2)\n" << std::endl;
   std::cout << "Please enter a value for the duty ratio.\n" << std::endl;
   float vo;
   float K = valcheck.checkvalinput();
   std::cout << "\nPlease enter a value for the corner frequency (Fc).\n" << std::endl;
   float Fc = valcheck.checkvalinput();
-  std::cout << "Please enter a value for the switching frequency (Fs).\n" << std::endl;
+  std::cout << "\nPlease enter a value for the switching frequency (Fs).\n" << std::endl;
   float Fs = valcheck.checkvalinput();
-  vo = (M_PI*(1-K)*pow(Fc,2))/(2*pow(Fs,2));
-  std::cout << "\nVoltage ripple magnitude = " << vo << "\n";
+  vo = (pow(M_PI,2)*(1-K)*pow(Fc,2))/(2*pow(Fs,2));
+  std::cout << "\nVoltage ripple magnitude = " << vo << " V.\n";
 }
 
 //code relating to volt menu ends here

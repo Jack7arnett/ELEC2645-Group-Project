@@ -8,7 +8,6 @@
 
 class Mainmenu {
 public:
-  void clear();
   void main_menu();
   int get_user_input();
   void print_main_menu();
@@ -17,7 +16,6 @@ public:
   void print_con_menu();
   void menu_item_2();
   void menu_item_3();
-  void menu_item_4();
 
 private:
   void select_menu_item(int input);

@@ -2,15 +2,13 @@
 #define BUCK_MENU
 
 #include "stdlib.h"
-#include <string>
-#include <regex>
 #include <iostream>
 #include <cmath>
-#include "boostmenu.h"
 
 class Buckmenu {
 public:
   void buck_converter();
+private:
   void print_buck_menu();
   void buck_eq_1();
   void buck_eq_2();
@@ -29,8 +27,6 @@ public:
   void print_volt_menu();
   void voltrip_eq_1();
   void voltrip_eq_2();
-
-private:
   void select_buck_item(int input);
   void select_duty_item(int input);
   void select_volt_item(int input);
