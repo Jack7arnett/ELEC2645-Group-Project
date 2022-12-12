@@ -5,6 +5,10 @@ bool Func::is_integer(std::string num) {
   return std::regex_match(num, std::regex("[+-]?[0-9]+"));
 }
 
+bool Func::is_numval(std::string num) {
+  return std::regex_match(num, std::regex(R"((?:^|\s)([+-]?[[:digit:]]*\.?[[:digit:]]+)(?=$|\s))"));
+}
+
 int Func::checkmenuinput(int menu_items){
   int input;
   std::string input_string1;
@@ -29,18 +33,18 @@ int Func::checkmenuinput(int menu_items){
   return input;
 }
 
-int Func::checkvalinput(){
-  int input;
+float Func::checkvalinput(){
+  float input;
   std::string input_string1;
   bool valid_input1 = false;
   
   do {
     std::cin >> input_string1;
-    valid_input1 = is_integer(input_string1);
+    valid_input1 = is_numval(input_string1);
     if (valid_input1 == false) {
-      std::cout << "\nEnter an integer!\n\n";
+      std::cout << "\nEnter a numerical value!\n\n";
     } else {
-      input = std::stoi(input_string1);
+      input = std::stof(input_string1);
     }
   } while (valid_input1 == false);
   

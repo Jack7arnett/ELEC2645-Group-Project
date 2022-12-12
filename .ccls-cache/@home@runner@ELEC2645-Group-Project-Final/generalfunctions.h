@@ -11,8 +11,9 @@ class Func {
 public:
   void select_menu_item(int input);
   bool is_integer(std::string num);
+  bool is_numval(std::string num);
   int checkmenuinput(int menu_items);
-  int checkvalinput();
+  float checkvalinput();
   void clear();
   void go_back_to_main();
 

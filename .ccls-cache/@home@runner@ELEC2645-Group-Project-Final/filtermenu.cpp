@@ -1,6 +1,8 @@
 #include"filtermenu.h"
 
 void filtermenu :: filter_menu() {
+  Func clr;
+  clr.clear();
   print_filter_menu();
   menu_items =6;
   int input = get_user_input();
