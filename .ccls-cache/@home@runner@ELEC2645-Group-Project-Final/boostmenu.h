@@ -15,12 +15,18 @@ public:
   void boost_eq_3();
   void boost_eq_4();
   void boost_eq_5();
+  void print_duty_menu();
+  void duty_eq_1();
+  void duty_eq_2();
+  void duty_eq_3();
+  void duty_eq_4();
   void boost_eq_6();
   void boost_eq_7();
   void boost_eq_8();
   void boost_eq_9();
 
 private:
+  void select_duty_item(int input);
   void select_boost_item(int input);
 
 };

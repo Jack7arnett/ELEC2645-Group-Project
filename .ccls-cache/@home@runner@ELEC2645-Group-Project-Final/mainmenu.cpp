@@ -5,6 +5,8 @@
 #include "opamp.h"
 
 void Mainmenu::main_menu() {
+  Func clr;
+  clr.clear();
   print_main_menu();
   Func check;
   int input = check.checkmenuinput(4);
@@ -15,7 +17,7 @@ void Mainmenu::print_main_menu() {
   std::cout << "\n----------- Main Menu -----------\n";
   std::cout << "|\t\t\t\t\t\t\t\t|\n";
   std::cout << "|\t1. DC-DC Converters\t\t\t|\n";
-  std::cout << "|\t2. menu 2          \t\t\t|\n";
+  std::cout << "|\t2. Passive Filters \t\t\t|\n";
   std::cout << "|\t3. Menu 3 - Multiplication\t|\n";
   std::cout << "|\t4. Exit\t\t\t\t\t\t|\n";
   std::cout << "|\t\t\t\t\t\t\t\t|\n";
@@ -46,7 +48,7 @@ void Mainmenu::menu_item_1() {
   clr.clear();
   print_con_menu();
   Func check;
-  int yourchoice = check.checkmenuinput(2);
+  int yourchoice = check.checkmenuinput(3);
   select_dc_item(yourchoice);
   Func menu;
   menu.go_back_to_main();
@@ -57,6 +59,7 @@ void Mainmenu::print_con_menu(){
   std::cout << "|\t\t\t\t\t\t\t\t|\n";
   std::cout << "|\t\t1. Buck Converter\t\t|\n";
   std::cout << "|\t\t2. Boost Coverter\t\t|\n";
+  std::cout << "|\t\t3. Return  \t\t\t\t|\n";
   std::cout << "|\t\t\t\t\t\t\t\t|\n";
   std::cout << "---------------------------------\n";
   std::cout << "\nPlease enter the corresponding number to choose a desired DC-DC converter.\n";
@@ -69,6 +72,7 @@ void Mainmenu::select_dc_item(int input) {
   Boostmenu startboost;
   case 1: startbuck.buck_converter();break;
   case 2: startboost.boost_converter();break;
+  case 3: main_menu();break;
   default: std::cout << "Invalid";break;
   }
 }

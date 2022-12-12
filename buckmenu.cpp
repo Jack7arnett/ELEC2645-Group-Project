@@ -6,7 +6,7 @@ void Buckmenu::buck_converter() {
   clr.clear();
   print_buck_menu();
   Func check;
-  int yourchoice = check.checkmenuinput(9);
+  int yourchoice = check.checkmenuinput(10);
   select_buck_item(yourchoice);
 }
 
@@ -22,6 +22,7 @@ void Buckmenu::print_buck_menu() {
   std::cout << "|\t7. Current ripple magnitude\t\t\t\t\t|\n";
   std::cout << "|\t8. Capacitor\t\t\t\t\t\t\t\t|\n";
   std::cout << "|\t9. Voltage ripple magnitude (2 equations)\t|\n";
+  std::cout << "|\t10. Return\t\t\t\t\t\t\t\t\t|\n";
   std::cout << "|\t\t\t\t\t\t\t\t\t\t\t\t|\n";
   std::cout << "------------------------------------------------\n";
   std::cout << "\nPlease choose a desired calculation.\n";
@@ -29,7 +30,8 @@ void Buckmenu::print_buck_menu() {
 }
 
 void Buckmenu::select_buck_item(int input){
-  switch (input)
+  Mainmenu main;
+  switch(input)
 { case 1: buck_eq_1(); break;
   case 2: buck_eq_2();break;
   case 3: buck_eq_3(); break;
@@ -39,6 +41,7 @@ void Buckmenu::select_buck_item(int input){
   case 7: buck_eq_7(); break;
   case 8: buck_eq_8();break;
   case 9: buck_eq_9();break;
+  case 10: main.menu_item_1();;break;
   default: std::cout <<"invalid"; break;
   }
 }
@@ -102,12 +105,14 @@ void Buckmenu::buck_eq_4(){
   std::cout << "\nPower out = " << Pout << " W.\n";
 }
 
+//code relating to duty ratio menu begins here
+
 void Buckmenu::buck_eq_5(){
   Func clr;
   clr.clear();
   print_duty_menu();
   Func check;
-  int yourchoice = check.checkmenuinput(4);
+  int yourchoice = check.checkmenuinput(5);
   select_duty_item(yourchoice);
 }
 
@@ -117,11 +122,10 @@ void Buckmenu::select_duty_item(int input){
   case 2: duty_eq_2();break;
   case 3: duty_eq_3(); break;
   case 4: duty_eq_4();break;
+  case 5: buck_converter();break;
   default: std::cout <<"invalid"; break;
   }
 }
-
-//code relating to duty ratio menu begins here
 
 void Buckmenu::print_duty_menu(){
   std::cout << "\n-------- Duty Ratio (K) Equation Menu ----------\n";
@@ -130,6 +134,7 @@ void Buckmenu::print_duty_menu(){
   std::cout << "|\t2. K = 1-(t(off)/Ts)\t\t\t\t\t\t|\n";
   std::cout << "|\t3. K = Vo/Vi\t\t\t\t\t\t\t\t|\n";
   std::cout << "|\t4. K = Ii/Io\t\t\t\t\t\t\t\t|\n";
+  std::cout << "|\t5. Return\t\t\t\t\t\t\t\t\t|\n";
   std::cout << "|\t\t\t\t\t\t\t\t\t\t\t\t|\n";
   std::cout << "------------------------------------------------\n";
   std::cout << "\nPlease select an equation for the duty ratio.\n";
@@ -269,7 +274,7 @@ void Buckmenu::buck_eq_9(){
   clr.clear();
   print_volt_menu();
   Func check;
-  int yourchoice = check.checkmenuinput(2);
+  int yourchoice = check.checkmenuinput(3);
   select_volt_item(yourchoice);
 }
 
@@ -277,6 +282,7 @@ void Buckmenu::select_volt_item(int input){
   switch (input)
 { case 1: voltrip_eq_1(); break;
   case 2: voltrip_eq_2();break;
+  case 3: buck_converter();break;
   default: std::cout <<"invalid"; break;
   }
 }
@@ -288,6 +294,7 @@ void Buckmenu::print_volt_menu(){
   std::cout << "|\t\t\t\t\t\t\t\t\t\t\t\t|\n";
   std::cout << "|\t1. Δvo = (% x Vo)/100\t\t\t\t\t\t|\n";
   std::cout << "|\t2. Δvo = (K x Ts)/(R x Co)\t\t\t\t\t|\n";
+  std::cout << "|\t3. Return\t\t\t\t\t\t\t\t\t\t|\n";
   std::cout << "|\t\t\t\t\t\t\t\t\t\t\t\t|\n";
   std::cout << "------------------------------------------------\n";
   std::cout << "\nPlease select an equation for the voltage ripple magnitude.\n";

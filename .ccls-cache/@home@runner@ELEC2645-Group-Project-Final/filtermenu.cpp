@@ -2,7 +2,7 @@
 
 void filtermenu :: filter_menu() {
   print_filter_menu();
-  menu_items =5;
+  menu_items =6;
   int input = get_user_input();
   select_menu_item(input);
 }
@@ -46,6 +46,11 @@ void filtermenu :: select_menu_item(int input) {
   case 4:
     menu_item_4();
     break;
+    case 5: 
+    Func func;
+      func.clear();
+      Mainmenu main;
+     main.main_menu();
   default:
     exit(1);
     break;
@@ -53,22 +58,26 @@ void filtermenu :: select_menu_item(int input) {
 }
 
 void filtermenu :: print_filter_menu() {
-  std::cout << "\n----------- Main menu -----------\n";
+  std::cout << "\n----------- Filter menu -----------\n";
   std::cout << "|\t\t\t\t\t\t\t\t|\n";
   std::cout << "|\t1. Menu 1 - RC high pass\t|\n";
   std::cout << "|\t2. Menu 2 - RC low pass\t\t|\n";
   std::cout << "|\t3. Menu 3 - RL low pass\t\t|\n";
   std::cout << "|\t4. Menu 4 - RLC passband\t|\n";
-  std::cout << "|\t5. Exit\t\t\t\t\t\t|\n";
+  std::cout << "|\t5. go back to main menu\t\t|\n";
+  std::cout << "|\t6. Exit\t\t\t\t\t\t|\n";
   std::cout << "|\t\t\t\t\t\t\t\t|\n";
+   std::cout << "------------------------------------\n";
 }
 
 void filtermenu::go_back_to_filter() {
   std::string input;
   do {
-    std::cout << "\nEnter 'b' or 'B' to go back to main menu: ";
+    std::cout << "\nEnter 'b' or 'B' to go back to filter menu: ";
     std::cin >> input;
   } while (input != "b" && input != "B");
+  Func func;
+  func.clear();
   filter_menu();
 }
 
@@ -96,6 +105,7 @@ int filtermenu ::waituntilvalidnum(){
   return input1;
 }
 
+
 //// ---------------menue item one ---------------------------------------
 void filtermenu ::menu_item_1() 
   { 
@@ -106,8 +116,20 @@ void filtermenu ::menu_item_1()
   std::cout << "|\t3. Exit\t\t\t\t\t\t\t\t\t\t\t\t|\n";
   std::cout << "|\t\t\t\t\t\t\t\t\t\t\t\t\t\t|\n";
   std::cout << "--------------------------------------------------------\n";
+     std::cout<<" ------ this is the circuit digram---- \n";
+    std::cout<<"\t\t\t|\t|\n";
+  std::cout<<"——————————— |\t| ————————————————————————O\n";
+  std::cout<<"\t\t\t|\t|\t\t\t| |\n";
+  std::cout<<"\t\t\t\t\t\t\t| |\n";
+  std::cout<<"\t\t\t\t\t\t   ——————\t\t\n";
+  std::cout<<"\t\t\t\t\t\t   |\t|\t\t\n";
+  std::cout<<"\t\t\t\t\t\t   |\t|\t\tV\n";
+  std::cout<<"\t\t\t\t\t\t   ——————\t\tout\n";
+  std::cout<<"\t\t\t\t\t\t\t| |\n";
+  std::cout<<"\t\t\t\t\t\t\t| |\n";
+    std::cout<<"————————————————————————————————————————O\n";
     
- std::cout<<"choose from the menu above";
+ std::cout<<"choose from the menu above ";
     menu_items=3;
    input = get_user_input();
     switch (input) {
@@ -123,27 +145,28 @@ void filtermenu ::menu_item_1()
   }
     }
 void filtermenu :: submenu1_item_1 (){
-  std::cout<<"Input the resistor value";
+  std::cout<<"Input the resistor value : ";
    resistor = waituntilvalidnum();
-    std::cout<<"Input the capacitor value";
+    std::cout<<"Input the capacitor value : ";
    capacitor = waituntilvalidnum();
   cutoff_frequency = 1/(2*pi*resistor*capacitor);
   std::cout<<"cut off frequency ="<<cutoff_frequency;
+  go_back_to_filter();
 }
     
 void filtermenu :: submenu1_item_2(){
-std::cout<<"Input the resistor value";
+std::cout<<"Input the resistor value : ";
    resistor = waituntilvalidnum();
-    std::cout<<"Input the capacitor value";
+    std::cout<<"Input the capacitor value : ";
    capacitor = waituntilvalidnum();
-  std::cout<<"Input the frequency";
+  std::cout<<"Input the frequency : ";
    frequency = waituntilvalidnum();
   double subgain1 = 2*pi*frequency*resistor*capacitor;
   double subgain2=pow(subgain1,2);
   gain =  2*pi*frequency*resistor*capacitor/
   pow(1+subgain2,1/2);
   std::cout<<"gain="<<gain;
-  
+  go_back_to_filter();
 }
 ////// menu item 2 ////////////
 void filtermenu :: menu_item_2() {
@@ -154,7 +177,17 @@ void filtermenu :: menu_item_2() {
   std::cout << "|\t3. Exit\t\t\t\t\t\t\t\t\t\t\t\t|\n";
   std::cout << "|\t\t\t\t\t\t\t\t\t\t\t\t\t\t|\n";
   std::cout << "--------------------------------------------------------\n";
-    
+      std::cout << "--------------------------------------------------------\n";
+      std::cout<<" ------ this is the circuit digram ------\n";
+    std::cout<<"\t\t\t————\n";
+  std::cout<<"———————————|\t|————————————————————————O\n";
+  std::cout<<"\t\t\t————\t\t\t| |\n";
+  std::cout<<"\t\t\t\t\t\t\t| |\n";
+  std::cout<<"\t\t\t\t\t\t —————————\t\tV\n";
+  std::cout<<"\t\t\t\t\t\t —————————\t\tout\n";
+  std::cout<<"\t\t\t\t\t\t\t| |\n";
+  std::cout<<"\t\t\t\t\t\t\t| |\n";
+    std::cout<<"————————————————————————————————————————O\n";
     std::cout<<"choose from the menu above";
     menu_items=3;
    input = get_user_input();
@@ -172,25 +205,27 @@ void filtermenu :: menu_item_2() {
   }
     }
 void filtermenu :: submenu2_item_1 (){
-  std::cout<<"Input the resistor value";
+  std::cout<<"Input the resistor value : ";
    resistor = waituntilvalidnum();
-    std::cout<<"Input the capacitor value";
+    std::cout<<"Input the capacitor value : ";
    capacitor = waituntilvalidnum();
   cutoff_frequency = 1/(2*pi*resistor*capacitor);
   std::cout<<"cut off frequency ="<<cutoff_frequency;
+  go_back_to_filter();
 }
     
 void filtermenu :: submenu2_item_2(){
-std::cout<<"Input the resistor value";
+std::cout<<"Input the resistor value : ";
    resistor = waituntilvalidnum();
-    std::cout<<"Input the capacitor value";
+    std::cout<<"Input the capacitor value : ";
    capacitor = waituntilvalidnum();
-  std::cout<<"Input the frequency";
+  std::cout<<"Input the frequency : ";
    frequency = waituntilvalidnum();
   double subgain1 = 2*pi*frequency*resistor*capacitor;
   double subgain2=pow(subgain1,2);
   gain =  1/pow(1+subgain2,1/2);
   std::cout<<"gain="<<gain;
+  go_back_to_filter();
 }
 ////// menu item 3
 
@@ -202,7 +237,7 @@ void filtermenu :: menu_item_3() {
   std::cout << "|\t3. Exit\t\t\t\t\t\t\t\t\t\t\t\t|\n";
   std::cout << "|\t\t\t\t\t\t\t\t\t\t\t\t\t\t|\n";
   std::cout << "--------------------------------------------------------\n";
-  std::cout<<"choose from the menu above";
+  std::cout<<"choose from the menu above ";
     menu_items=3;
    input = get_user_input();
     switch (input) {
@@ -218,26 +253,28 @@ void filtermenu :: menu_item_3() {
   }
     }
 void filtermenu :: submenu3_item_1 (){
-  std::cout<<"Input the resistor value";
+  std::cout<<"Input the resistor value :";
    resistor = waituntilvalidnum();
-    std::cout<<"Input the inductor value";
+    std::cout<<"Input the inductor value :";
    inductor = waituntilvalidnum();
   cutoff_frequency = resistor/(2*pi*inductor);
   std::cout<<"cut off frequency ="<<cutoff_frequency;
+  go_back_to_filter();
 }
     
 void filtermenu :: submenu3_item_2(){
-std::cout<<"Input the resistor value";
+std::cout<<"Input the resistor value : ";
    resistor = waituntilvalidnum();
-    std::cout<<"Input the capacitor value";
+    std::cout<<"Input the capacitor value : ";
    inductor = waituntilvalidnum();
-  std::cout<<"Input the frequency";
+  std::cout<<"Input the frequency : ";
    frequency = waituntilvalidnum();
   double subgain1=pow(resistor,2);
   double subgain2 = pow(2*pi*frequency*inductor,2);
   double subgain3 = pow(subgain1+subgain2,1/2);
   gain =resistor/subgain3  ;
   std::cout<<"gain="<<gain;
+  go_back_to_filter();
 }
 //// menu item 4 
 void filtermenu :: menu_item_4() {
@@ -248,7 +285,7 @@ std::cout << "\n----------- RLC passband menu ----------------------\n";
   std::cout << "|\t3. Exit\t\t\t\t\t\t\t\t\t\t\t\t|\n";
   std::cout << "|\t\t\t\t\t\t\t\t\t\t\t\t\t\t|\n";
   std::cout << "--------------------------------------------------------\n";
- std::cout<<"choose from the menu above";
+ std::cout<<"choose from the menu above ";
     menu_items=3;
    input = get_user_input();
     switch (input) {
@@ -264,29 +301,30 @@ std::cout << "\n----------- RLC passband menu ----------------------\n";
   }
     }
 void filtermenu :: submenu4_item_1 (){
-  std::cout<<"Input the resistor value";
+  std::cout<<"Input the resistor value : ";
    resistor = waituntilvalidnum();
-    std::cout<<"Input the capacitor value";
+    std::cout<<"Input the capacitor value : ";
    inductor = waituntilvalidnum();
-  std::cout<<"Input the inductor value";
+  std::cout<<"Input the inductor value : ";
    inductor = waituntilvalidnum();
   double subfrequency = pow(capacitor*inductor,1/2);
   
   cutoff_frequency =1/2*pi*subfrequency ;
-  std::cout<<"center o passband = "<<cutoff_frequency;
+  std::cout<<"center of passband = "<<cutoff_frequency;
+  go_back_to_filter();
 }
     
 void filtermenu :: submenu4_item_2(){
-std::cout<<"Input the resistor value";
+std::cout<<"Input the resistor value : ";
    resistor = waituntilvalidnum();
-    std::cout<<"Input the capacitor value";
+    std::cout<<"Input the capacitor value : ";
    capacitor = waituntilvalidnum();
-  std::cout<<"Input the inductor value";
+  std::cout<<"Input the inductor value : ";
    inductor = waituntilvalidnum();
-  std::cout<<"Input the frequency";
+  std::cout<<"Input the frequency : ";
    frequency = waituntilvalidnum();
   double subgain1=2*pi*frequency*inductor;
   double subgain2 = 1/(2*pi*frequency*capacitor);
   gain =resistor/(resistor*subgain1*subgain2);
   std::cout<<"gain="<<gain;
-}
+  go_back_to_filter();}

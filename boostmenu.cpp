@@ -100,9 +100,101 @@ void Boostmenu::boost_eq_4(){
   std::cout << "\nPower out = " << Pout << " W.\n";
 }
 
+//code relating to duty ratio menu begins here
+
 void Boostmenu::boost_eq_5(){
-  std::cout << "Equation 5" << std::endl;
+  Func clr;
+  clr.clear();
+  print_duty_menu();
+  Func check;
+  int yourchoice = check.checkmenuinput(4);
+  select_duty_item(yourchoice);
 }
+
+void Boostmenu::select_duty_item(int input){
+  switch (input)
+{ case 1: duty_eq_1(); break;
+  case 2: duty_eq_2();break;
+  case 3: duty_eq_3(); break;
+  case 4: duty_eq_4();break;
+  default: std::cout <<"invalid"; break;
+  }
+}
+
+void Boostmenu::print_duty_menu(){
+  std::cout << "\n-------- Duty Ratio (K) Equation Menu ----------\n";
+  std::cout << "|\t\t\t\t\t\t\t\t\t\t\t\t|\n";
+  std::cout << "|\t1. K = t(on)/Ts\t\t\t\t\t\t\t\t |\n";
+  std::cout << "|\t2. K = 1-(t(off)/Ts)\t\t\t\t\t\t|\n";
+  std::cout << "|\t3. K = 1-Vi/Vo\t\t\t\t\t\t\t\t  |\n";
+  std::cout << "|\t4. K = 1-Io/Ii\t\t\t\t\t\t\t\t  |\n";
+  std::cout << "|\t\t\t\t\t\t\t\t\t\t\t\t|\n";
+  std::cout << "------------------------------------------------\n";
+  std::cout << "\nPlease select an equation for the duty ratio.\n";
+  std::cout << "\nSelect item: ";
+}
+
+void Boostmenu::duty_eq_1(){
+  Func clr;
+  Func valcheck;
+  clr.clear();
+  std::cout << "\nDuty ratio equation 1 selected:\n" << std::endl;
+  std::cout << "K = t(on)/Ts\n" << std::endl;
+  std::cout << "Please enter a value for t(on).\n" << std::endl;
+  float K;
+  float ton = valcheck.checkvalinput();
+  std::cout << "\nPlease enter a value for Ts.\n" << std::endl;
+  float Ts = valcheck.checkvalinput();
+  K = ton/Ts;
+  std::cout << "\nDuty ratio = " << K << "\n";
+}
+
+void Boostmenu::duty_eq_2(){
+  Func clr;
+  Func valcheck;
+  clr.clear();
+  std::cout << "\nDuty ratio equation 2 selected:\n" << std::endl;
+  std::cout << "K = 1-(t(off)/Ts)\n" << std::endl;
+  std::cout << "Please enter a value for t(off).\n" << std::endl;
+  float K;
+  float toff = valcheck.checkvalinput();
+  std::cout << "\nPlease enter a value for Ts.\n" << std::endl;
+  float Ts = valcheck.checkvalinput();
+  K = 1-(toff/Ts);
+  std::cout << "\nDuty ratio = " << K << "\n";
+}
+
+void Boostmenu::duty_eq_3(){
+  Func clr;
+  Func valcheck;
+  clr.clear();
+  std::cout << "\nDuty ratio equation 3 selected:\n" << std::endl;
+  std::cout << "K = Vo/Vi\n" << std::endl;
+  std::cout << "Please enter a value for Vo.\n" << std::endl;
+  float K;
+  float Vo = valcheck.checkvalinput();
+  std::cout << "\nPlease enter a value for Vi.\n" << std::endl;
+  float Vi = valcheck.checkvalinput();
+  K = Vo/Vi;
+  std::cout << "\nDuty ratio = " << K << "\n";
+}
+
+void Boostmenu::duty_eq_4(){
+  Func clr;
+  Func valcheck;
+  clr.clear();
+  std::cout << "\nDuty ratio equation 4 selected:\n" << std::endl;
+  std::cout << "K = Ii/Io\n" << std::endl;
+  std::cout << "Please enter a value for Ii.\n" << std::endl;
+  float K;
+  float Ii = valcheck.checkvalinput();
+  std::cout << "\nPlease enter a value for Io.\n" << std::endl;
+  float Io = valcheck.checkvalinput();
+  K = Ii/Io;
+  std::cout << "\nDuty ratio = " << K << "\n";
+}
+
+//code relating to duty ratio menu ends here
 
 void Boostmenu::boost_eq_6(){
   Func clr;
