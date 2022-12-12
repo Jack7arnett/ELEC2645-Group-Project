@@ -18,7 +18,7 @@ void Mainmenu::print_main_menu() {
   std::cout << "|\t\t\t\t\t\t\t\t|\n";
   std::cout << "|\t1. DC-DC Converters\t\t\t|\n";
   std::cout << "|\t2. Passive Filters \t\t\t|\n";
-  std::cout << "|\t3. Menu 3 - Multiplication\t|\n";
+  std::cout << "|\t3. Op-amp Calculator\t\t|\n";
   std::cout << "|\t4. Exit\t\t\t\t\t\t|\n";
   std::cout << "|\t\t\t\t\t\t\t\t|\n";
   std::cout << "---------------------------------\n";
@@ -80,8 +80,6 @@ void Mainmenu::select_dc_item(int input) {
 void Mainmenu::menu_item_2() {
   filtermenu filtermenu;
   filtermenu.filter_menu();
-  Func menu;
-  menu.go_back_to_main();
 }
 
 void Mainmenu::menu_item_3() {

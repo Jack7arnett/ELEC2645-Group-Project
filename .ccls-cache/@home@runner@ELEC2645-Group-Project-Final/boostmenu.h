@@ -23,10 +23,19 @@ public:
   void boost_eq_6();
   void boost_eq_7();
   void boost_eq_8();
+  void print_cap_menu();
+  void cap_eq_1();
+  void cap_eq_2();
+  void cap_eq_3();
   void boost_eq_9();
+  void print_volt_menu();
+  void voltrip_eq_1();
+  void voltrip_eq_2();
 
 private:
   void select_duty_item(int input);
+  void select_cap_item(int input);
+  void select_volt_item(int input);
   void select_boost_item(int input);
 
 };

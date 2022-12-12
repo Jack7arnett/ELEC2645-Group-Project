@@ -2,11 +2,8 @@
 #define BUCK_MENU
 
 #include "stdlib.h"
-#include <string>
-#include <regex>
 #include <iostream>
 #include <cmath>
-#include "boostmenu.h"
 
 class Buckmenu {
 public:

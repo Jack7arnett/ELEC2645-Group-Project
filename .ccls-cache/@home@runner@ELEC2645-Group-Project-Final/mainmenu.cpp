@@ -18,7 +18,7 @@ void Mainmenu::print_main_menu() {
   std::cout << "|\t\t\t\t\t\t\t\t|\n";
   std::cout << "|\t1. DC-DC Converters\t\t\t|\n";
   std::cout << "|\t2. Passive Filters \t\t\t|\n";
-  std::cout << "|\t3. Menu 3 - Multiplication\t|\n";
+  std::cout << "|\t3. Op-amp Calculator\t\t|\n";
   std::cout << "|\t4. Exit\t\t\t\t\t\t|\n";
   std::cout << "|\t\t\t\t\t\t\t\t|\n";
   std::cout << "---------------------------------\n";
