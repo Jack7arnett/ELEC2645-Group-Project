@@ -67,10 +67,10 @@ void Mainmenu::print_con_menu(){
 }
 
 void Mainmenu::select_dc_item(int input) {
-  switch (input)
-{ Buckmenu startbuck;
+  Buckmenu startbuck;
   Boostmenu startboost;
-  case 1: startbuck.buck_converter();break;
+  switch (input)
+{ case 1: startbuck.buck_converter();break;
   case 2: startboost.boost_converter();break;
   case 3: main_menu();break;
   default: std::cout << "Invalid";break;

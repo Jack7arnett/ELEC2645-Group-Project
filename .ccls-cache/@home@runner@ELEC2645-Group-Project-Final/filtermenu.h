@@ -7,7 +7,18 @@
 #define pi 3.14159265
 class filtermenu { 
 public : 
-int menu_items =5;
+std::string input5;
+int i=0;
+double frequencyresult[9]={};
+double gainresult[9]={};
+double resistor_array[9]={};
+double capacitor_array[9]={};
+double inductor_array[9]={};
+double frequency_array[9]={};
+void storage_check();
+int menu_items =6;
+float waituntilvalidnum2();
+bool is_integer2(std::string num);
 int input=0;
 double resistor=0;
 double capacitor=0;
