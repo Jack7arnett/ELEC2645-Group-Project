@@ -5,6 +5,8 @@ bool Func::is_integer(std::string num) {
   return std::regex_match(num, std::regex("[+-]?[0-9]+"));
 }
 
+// The code for the regex match below was found at: https://codereview.stackexchange.com/questions/162569/checking-if-each-char-in-a-string-is-a-decimal-digit
+
 bool Func::is_numval(std::string num) {
   return std::regex_match(num, std::regex(R"((?:^|\s)([+-]?[[:digit:]]*\.?[[:digit:]]+)(?=$|\s))"));
 }
@@ -50,6 +52,8 @@ float Func::checkvalinput(){
   
   return input;
 }
+
+// The code to clear the screen below was found at: https://replit.com/talk/ask/How-to-clear-screen-in-replit-C/10430
 
 void Func::clear() {
   std::cout << "\033[2J\033[1;1H";

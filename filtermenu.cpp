@@ -1,6 +1,5 @@
 #include"filtermenu.h"
 
-/////////////////
 void filtermenu::storage_check(){
 do {
   std::cout<<"\nDo you want to store the values of this calculations? ";
@@ -28,7 +27,6 @@ do {
    go_back_to_filter();
   }
   }
-////////////////////
 
 void filtermenu :: filter_menu() {
   Func clr;
