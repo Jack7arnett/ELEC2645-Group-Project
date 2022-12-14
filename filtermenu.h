@@ -16,7 +16,7 @@ double capacitor_array[9]={};
 double inductor_array[9]={};
 double frequency_array[9]={};
 void storage_check();
-int menu_items =6;
+int menu_items;
 float waituntilvalidnum2();
 bool is_integer2(std::string num);
 int input=0;

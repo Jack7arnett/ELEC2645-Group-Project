@@ -448,6 +448,8 @@ do {
     switch_array1[I] = Fs;
     time_array1[I] = Ts; 
     duty_array1[I] = K;
+    pin_array1[I] = Pin;
+    pout_array1[I] = Pout;
     inductor_array1[I] = L;
     currip_array1[I] = i;
     cap_array1[I] = Co;
@@ -462,7 +464,7 @@ do {
     Q=0;
     vo=0;
     I=I+1;
-    if(i>10){i=0;}
+    if(I>10){I=0;}
     go_back_to_boost();
   }
   else{
@@ -475,7 +477,7 @@ void Boostmenu::calc_hist(){
   Func check;
   std::cout<<"\nEnter the number of the calculation you want to view";
   std::cout << "\ni.e. for the 1st calculation enter 1: ";
-input = check.checkvalinput();
+input = check.checkcalcinput();
   if(input>10||input<1) {std::cout<<"The maximum stored values are 10, please eneter an integer between 1 and 10";
    calc_hist();
     }
@@ -500,6 +502,7 @@ std::cout<<"\nCalculation "<<input<<":\n";
   std::cout<<"\n Capacitor = " << *ptr8 << " C.";
   std::cout<<"\n Charge = " << *ptr9 << " F.";
   std::cout<<"\n Voltage ripple magnitude = " << *ptr10 << " V.\n"; 
+  go_back_to_boost();
 }
 
 void Boostmenu::go_back_to_boost() {

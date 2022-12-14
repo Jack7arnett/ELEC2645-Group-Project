@@ -32,7 +32,7 @@ void filtermenu :: filter_menu() {
   Func clr;
   clr.clear();
   print_filter_menu();
-  menu_items =6;
+  menu_items =7;
   int input = get_user_input();
   select_menu_item(input);
 }

@@ -35,6 +35,24 @@ int Func::checkmenuinput(int menu_items){
   return input;
 }
 
+int Func::checkcalcinput(){
+  int input;
+  std::string input_string1;
+  bool valid_input1 = false;
+  
+  do {
+    std::cin >> input_string1;
+    valid_input1 = is_integer(input_string1);
+    if (valid_input1 == false) {
+      std::cout << "\nEnter an integer!\n\n";
+    } else {
+      input = std::stoi(input_string1);
+    }
+  } while (valid_input1 == false);
+  
+  return input;
+}
+
 float Func::checkvalinput(){
   float input;
   std::string input_string1;
