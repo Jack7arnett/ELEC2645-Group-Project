@@ -25,9 +25,9 @@ private:
   void print_cap_menu();
   void cap_eq_1();
   void cap_eq_2();
-  void capacitor_calc1(float K, float Io, float Fs, float vo, float &Co, float &Q1);
+  void capacitor_calc1(float K, float Io, float Fs, float vo, float &Co, float &Q);
   void cap_eq_3();
-  void capacitor_calc2(float Vo, float K, float vo, float R, float Fs, float &Co2, float &Q2);
+  void capacitor_calc2(float Vo, float K, float vo, float R, float Fs, float &Co, float &Q);
   void boost_eq_9();
   void print_volt_menu();
   void voltrip_eq_1();
